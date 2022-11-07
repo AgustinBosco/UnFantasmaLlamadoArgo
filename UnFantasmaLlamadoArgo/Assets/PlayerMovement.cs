@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] States currentstate;
+    public Animator animator;
     enum States
     {
         IDLE,
@@ -32,15 +33,22 @@ public class PlayerMovement : MonoBehaviour
         if (drx != 0)
         {
             setCurrentState(States.MOVEMENT);
+            animator.SetFloat("Mov", 1.0f);
+            animator.SetFloat("Idler", 0.0f);
         }
         else
         {
             setCurrentState(States.IDLE);
+            animator.SetFloat("Idler", 1.0f);
+            animator.SetFloat("Mov", 0.0f);
         }
     }
 
     private void setCurrentState(States state)
     {
-        currentstate = state;
+        if (currentstate != state)
+        {
+            currentstate = state;
+        }
     }
 }

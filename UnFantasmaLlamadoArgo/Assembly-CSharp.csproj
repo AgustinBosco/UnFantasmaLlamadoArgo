@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\Argo.cs" />
+    <Compile Include="Assets\text.cs" />
+    <Compile Include="Assets\SceneChanger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

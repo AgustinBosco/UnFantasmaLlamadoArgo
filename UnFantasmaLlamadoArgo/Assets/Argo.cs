@@ -7,16 +7,16 @@ public class Argo : MonoBehaviour
     private float velocidadMovimiento = 5.0f;
     [SerializeField] public Transform jugador;
     [SerializeField] private float distancia;
-    [SerializeField] States currentstate;
+    [SerializeField] public States currentstate;
+    public int puntaje;
+    public Animator animator;
     private Collision2D colision;
 
     public Vector3 puntoinicial;
 
-    private Animator animator;
-
     private SpriteRenderer spriteRenderer;
 
-    enum States
+    public enum States
     {
         IDLE,
         ATTACK,
@@ -33,33 +33,22 @@ public class Argo : MonoBehaviour
     {
         distancia = Vector2.Distance(transform.position, jugador.position);
 
-        if(distancia < 8.5f)
-        {
-            if(currentstate == States.IDLE)
-            {
-                setCurrentState(States.ATTACK);
-            }
-        }
-
-        if(currentstate == States.ATTACK)
-        {
-            Ataque();
-        }
-
-        if(currentstate == States.CORREWACHIN)
-        {
-            Huida();
-        }
+        FSM();
     }
 
     private void setCurrentState(States state)
     {
-        currentstate = state;
+        if (currentstate != state)
+        {
+            currentstate = state;
+        }
     }
 
     private void Ataque()
     {
         transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidadMovimiento * Time.deltaTime);
+        animator.SetFloat("Movement", 1.0f);
+        animator.SetFloat("Huida", 0.0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +57,7 @@ public class Argo : MonoBehaviour
         {
             if(currentstate == States.ATTACK)
             {
+                puntaje++;
                 setCurrentState(States.CORREWACHIN);
             }
             else
@@ -82,5 +72,26 @@ public class Argo : MonoBehaviour
     {
         Vector2 dir = transform.position - jugador.position;
         transform.Translate(dir * Time.deltaTime);
+        animator.SetFloat("Movement", 0.0f);
+        animator.SetFloat("Huida", 1.0f);
+    }
+
+    public void FSM()
+    {
+        switch (currentstate)
+        {
+            case States.IDLE:
+                if (distancia < 8.5f)
+                {
+                    setCurrentState(States.ATTACK);
+                }
+                break;
+            case States.ATTACK:
+                Ataque();
+                break;
+            case States.CORREWACHIN:
+                Huida();
+                break;
+        }
     }
 }
