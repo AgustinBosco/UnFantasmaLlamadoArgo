@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Argo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -6,7 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+    [SerializeField] States currentstate;
+    enum States
+    {
+        IDLE,
+        MOVEMENT,
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,5 +29,18 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 10);
         }
 
+        if (drx != 0)
+        {
+            setCurrentState(States.MOVEMENT);
+        }
+        else
+        {
+            setCurrentState(States.IDLE);
+        }
+    }
+
+    private void setCurrentState(States state)
+    {
+        currentstate = state;
     }
 }
