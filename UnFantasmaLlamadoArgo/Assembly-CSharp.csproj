@@ -53,10 +53,13 @@
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerMovement.cs" />
-    <Compile Include="Assets\Argo.cs" />
     <Compile Include="Assets\text.cs" />
+    <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\SceneChanger.cs" />
+    <Compile Include="Assets\Argo.cs" />
+    <Compile Include="Assets\GridManager.cs" />
+    <Compile Include="Assets\Tile.cs" />
+    <Compile Include="Assets\timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -721,6 +724,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{247CEF5C-7ECC-1C40-9E13-D6249184BB40}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{88FFB828-F1B8-965A-03C8-AAFA96497433}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

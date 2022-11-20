@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Argo : MonoBehaviour
 {
@@ -8,9 +10,13 @@ public class Argo : MonoBehaviour
     [SerializeField] public Transform jugador;
     [SerializeField] private float distancia;
     [SerializeField] public States currentstate;
+    private NavMeshAgent navMeshAgent;
     public int puntaje;
     public Animator animator;
     private Collision2D colision;
+    public Text timerText;
+    private float starttime;
+    private bool timestart = false;
 
     public Vector3 puntoinicial;
 
@@ -27,13 +33,24 @@ public class Argo : MonoBehaviour
     {
         setCurrentState(States.IDLE);
         puntoinicial = transform.position;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
     }
 
     private void Update()
     {
         distancia = Vector2.Distance(transform.position, jugador.position);
-
         FSM();
+        if (timestart)
+        {
+            float t = Time.time - starttime;
+
+            string minutes = ((int)t / 60).ToString();
+            string seconds = (t % 60).ToString("f2");
+
+            timerText.text = minutes + ":" + seconds;
+        }
     }
 
     private void setCurrentState(States state)
@@ -46,7 +63,8 @@ public class Argo : MonoBehaviour
 
     private void Ataque()
     {
-        transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidadMovimiento * Time.deltaTime);
+        navMeshAgent.SetDestination(jugador.position);
+        //transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidadMovimiento * Time.deltaTime);
         animator.SetFloat("Movement", 1.0f);
         animator.SetFloat("Huida", 0.0f);
     }
@@ -70,8 +88,10 @@ public class Argo : MonoBehaviour
 
     private void Huida()
     {
+
         Vector2 dir = transform.position - jugador.position;
-        transform.Translate(dir * Time.deltaTime);
+        navMeshAgent.SetDestination(dir);
+        //transform.Translate(dir * Time.deltaTime);
         animator.SetFloat("Movement", 0.0f);
         animator.SetFloat("Huida", 1.0f);
     }
@@ -84,6 +104,8 @@ public class Argo : MonoBehaviour
                 if (distancia < 8.5f)
                 {
                     setCurrentState(States.ATTACK);
+                    starttime = Time.time;
+                    timestart = true;
                 }
                 break;
             case States.ATTACK:
