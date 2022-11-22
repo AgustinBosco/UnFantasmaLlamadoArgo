@@ -4,15 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
-
     [SerializeField] Argo argoso;
     private void Update()
     {
-        if(argoso.puntaje == 3)
+        if((argoso.t / 60) > 1.0f)
         {
-            SceneManager.LoadScene(1);
-            Debug.Log(argoso.puntaje);
+            if(argoso.argoPuntaje == argoso.puntaje)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+            }
         }
-        Debug.Log(argoso.puntaje);
     }
 }

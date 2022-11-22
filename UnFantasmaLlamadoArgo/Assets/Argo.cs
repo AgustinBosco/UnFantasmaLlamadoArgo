@@ -11,12 +11,14 @@ public class Argo : MonoBehaviour
     [SerializeField] private float distancia;
     [SerializeField] public States currentstate;
     private NavMeshAgent navMeshAgent;
-    public int puntaje;
+    public int puntaje = 1;
+    public int argoPuntaje;
     public Animator animator;
     private Collision2D colision;
     public Text timerText;
     private float starttime;
     private bool timestart = false;
+    public float t;
 
     public Vector3 puntoinicial;
 
@@ -44,7 +46,7 @@ public class Argo : MonoBehaviour
         FSM();
         if (timestart)
         {
-            float t = Time.time - starttime;
+            t = Time.time - starttime;
 
             string minutes = ((int)t / 60).ToString();
             string seconds = (t % 60).ToString("f2");
@@ -75,11 +77,12 @@ public class Argo : MonoBehaviour
         {
             if(currentstate == States.ATTACK)
             {
-                puntaje++;
+                argoPuntaje++;
                 setCurrentState(States.CORREWACHIN);
             }
             else
             {
+                puntaje++;
                 setCurrentState(States.ATTACK);
             }
             Debug.Log(currentstate);

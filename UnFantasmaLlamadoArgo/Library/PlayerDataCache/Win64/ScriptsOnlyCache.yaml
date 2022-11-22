@@ -5,6 +5,11 @@ ScriptsOnlyBuild:
     - PlayerMovement
     - SceneChanger
     - text
+    NavMeshComponents.dll:
+    - UnityEngine.AI.NavMeshModifier
+    - UnityEngine.AI.NavMeshSurface2d
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager2d
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -25,11 +30,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -60,15 +62,15 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2202}
+      Script: {instanceID: 2224}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2776}
+      Script: {instanceID: 2802}
     - Class: 114
-      Script: {instanceID: 2992}
+      Script: {instanceID: 3022}
     - Class: 114
-      Script: {instanceID: 3238}
+      Script: {instanceID: 3274}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -80,6 +82,51 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Final2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 2224}
+    - Class: 114
+      Script: {instanceID: 2642}
+    - Class: 114
+      Script: {instanceID: 2802}
+    - Class: 114
+      Script: {instanceID: 3022}
+    - Class: 114
+      Script: {instanceID: 3274}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -104,9 +151,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 66
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -115,28 +168,36 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2202}
+      Script: {instanceID: 622}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2164}
     - Class: 114
-      Script: {instanceID: 2776}
+      Script: {instanceID: 2224}
     - Class: 114
-      Script: {instanceID: 2992}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 3224}
+      Script: {instanceID: 2802}
     - Class: 114
-      Script: {instanceID: 3238}
+      Script: {instanceID: 3022}
     - Class: 114
-      Script: {instanceID: 4518}
+      Script: {instanceID: 3118}
     - Class: 114
-      Script: {instanceID: 23192}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 24024}
+      Script: {instanceID: 3274}
+    - Class: 114
+      Script: {instanceID: 3312}
+    - Class: 114
+      Script: {instanceID: 3354}
+    - Class: 114
+      Script: {instanceID: 4570}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -149,6 +210,16 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -237,10 +308,34 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
+      Hash: 597ea1d9c1721c90268cbb7600d1e492
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GridManager
+  - hash:
+      serializedVersion: 2
+      Hash: b0e736f30d8d62484930a0a1b9c6c94b
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: a2eee164a6cbec8994594da9d7724f0c
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface2d
   - hash:
       serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
@@ -271,6 +366,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 4e72092140b40b6c7191f19784789d78
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: timer
   - hash:
       serializedVersion: 2
       Hash: cfdd0010efd7b54c2b7512656dbc9119
@@ -351,10 +452,22 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 3becba6e852a059e3b0bffedefe213b8
+    assemblyName: NavMeshComponents.dll
+    namespaceName: NavMeshComponents.Extensions
+    className: NavMeshCollectRootSources2d
+  - hash:
+      serializedVersion: 2
       Hash: 9b2d72155209a515197b0788f9f11a91
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: LimbSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: ac4096541cd1ecf495a9a3f9b17bfb3d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: text
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -393,10 +506,22 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 4fc0a45e3ea2ac31173da05cfe21d8fe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneChanger
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -561,7 +686,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: e37c7a9202a6621c55d9a309b08e974e
+      Hash: 351f79d328898275516db29fd51779c2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Argo
@@ -615,6 +740,12 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: NavMeshComponents.dll
+    namespaceName: NavMeshComponents.Extensions
+    className: NavMeshCacheSources2d
+  - hash:
+      serializedVersion: 2
       Hash: 28cfb4bd305dd11c6326cc3ee7c14138
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
@@ -657,6 +788,12 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: c0f6995277fdfa1b4834e24282c556a6
+    assemblyName: NavMeshComponents.dll
+    namespaceName: NavMeshComponents.Extensions
+    className: NavMeshCollectSources2d
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -681,18 +818,19 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   - hash:
       serializedVersion: 2
-      Hash: ac4096541cd1ecf495a9a3f9b17bfb3d
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: text
+    className: Tile
   - hash:
       serializedVersion: 2
-      Hash: 4fc0a45e3ea2ac31173da05cfe21d8fe
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SceneChanger
+      Hash: c8c672fee8a258266e51b55a210b8083
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/Final.unity
+  - Assets/Scenes/Final2.unity
   playerPath: C:/Users/Agustin/Documents/Github/UnFantasmaLlamadoArgo/UnFantasmaLLamadoArgoBuild/UnFantasmaLlamadoArgo.exe
